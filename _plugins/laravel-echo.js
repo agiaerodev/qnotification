@@ -73,10 +73,17 @@ export default class echo {
           if (!response.isAction) response.frontEvent = {...response, name: 'inotification.notifications.new'}
           //Custom event from backend
           if (response.frontEvent && response.frontEvent.name) {
-            eventBus.emit(response.frontEvent.name, response.frontEvent)
+            eventBus.emit(
+              response.frontEvent.name, 
+              { 
+                ...response.frontEvent, 
+                ...response?.options,
+                message: response?.message,
+              }
+            )
           }
           //Custom event to show important notification
-          if (response.options && response.options.isImportant) {
+          if (response?.options && response?.options?.isImportant) {
             eventBus.emit('imagina.notification.open', response)
           }
         })
