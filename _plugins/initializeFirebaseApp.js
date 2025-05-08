@@ -15,16 +15,15 @@ export const initFirebaseApp = async () => {
 
         const firebaseConfig = {
             apiKey: json.data.fields.firebaseApiKey,
-            authDomain: json.data.fields.firebaseAuthDomain,
-            projectId: json.data.fields.firebaseProjectId,
-            storageBucket: json.data.fields.firebaseStorageBucket,
-            messagingSenderId: json.data.fields.firebaseMessagingSenderId,
-            appId: json.data.fields.firebaseAppId,
-            measurementId: json.data.fields.firebaseMeasurementId
+            authDomain: json.data.fields.authDomain,
+            projectId: json.data.fields.projectId,
+            storageBucket: json.data.fields.storageBucket,
+            messagingSenderId: json.data.fields.messagingSenderId,
+            appId: json.data.fields.appId,
+            measurementId: json.data.fields.measurementId
         }
 
         const app = initializeApp(firebaseConfig);
-
         return { app, firebaseWebPushCertificateKeyPair: json.data.fields.firebaseWebPushCertificateKeyPair }
     } catch (err) {
         console.log('Error initializing Firebase', err);
