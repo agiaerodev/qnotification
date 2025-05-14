@@ -64,7 +64,7 @@ import notificationCard from 'src/modules/qnotification/_components/notification
 
 import storeFirebase from 'modules/qnotification/_store/firebase/index.ts';
 
-import { eventBus } from 'src/plugins/utils';
+import { eventBus, helper } from 'src/plugins/utils';
 
 export default {
   beforeUnmount() {
@@ -172,14 +172,37 @@ export default {
         //Add notification
         this.notifications.unshift(response);
         //Show alert notification
+        const fullText = response.options?.fullText || false;
+        const title = response?.title ? (fullText ? response?.title : `${response?.title?.substr(0, 30)}...`) : '';
+        const message = response?.message ? (fullText ? response?.message : `${response?.message?.substr(0, 40)}...`) : null;
+
+        const actions = [
+          {
+            label: '',
+            color: 'transparent',
+            class: 'full-width full-height absolute-full',
+            handler: () => {
+              if (response?.link) {
+                helper.openExternalURL(response.link, true)
+              } else {
+                eventBus.emit('openMasterDrawer', 'notification')
+              }
+            }
+          },
+        ]
+        if (response?.options?.isClosed) {
+          actions.push({
+            label: 'close',
+            color: 'black',
+            handler: () => eventBus.emit('closeMasterDrawer', 'notification')
+          })
+        }
         this.$alert.info({
-          message: `${response.title.substr(0, 30)}...`,
+          title: message ? title : null,
+          message: message ?? title,
           icon: 'fas fa-bell',
-          actions: [{
-            label: this.$tr('isite.cms.label.show'),
-            color: 'white',
-            handler: () => eventBus.emit('openMasterDrawer', 'notification')
-          }]
+          timeout: response?.options?.timeout,
+          actions
         });
         //Play sound
         this.$helper.playSound({ url: `${this.$store.state.qsiteApp.baseUrl}/modules/notification/audio/sound_notification.mp3` });
