@@ -172,7 +172,7 @@ export default {
         //Add notification
         this.notifications.unshift(response);
         //Show alert notification
-        const fullText = response.options?.fullText || false;
+        const fullText = response?.options?.fullText || false;
         const title = response?.title ? (fullText ? response?.title : `${response?.title?.substr(0, 30)}...`) : '';
         const message = response?.message ? (fullText ? response?.message : `${response?.message?.substr(0, 40)}...`) : null;
 
