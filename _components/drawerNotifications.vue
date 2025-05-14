@@ -192,7 +192,7 @@ export default {
         ]
         if (response?.options?.isClosed) {
           actions.push({
-            label: 'close',
+            label: this.$tr('isite.cms.label.close'),
             color: 'black',
             handler: () => eventBus.emit('closeMasterDrawer', 'notification')
           })
