@@ -120,10 +120,6 @@ export default {
               label: 'Body',
             },
           }
-  
-          
-   
-
         },
         formRight: {
           status: {
@@ -139,7 +135,7 @@ export default {
               clearable: true,
             },
           },
-  provider: {
+          provider: {
             value: null,
             type: 'select',
             required: true,
@@ -175,9 +171,6 @@ export default {
               ],
             },
           },
-
-
-         
         },
     
       };
