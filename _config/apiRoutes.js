@@ -11,5 +11,9 @@ export default {
   providers : `${urlBase}/providers`,
   rules : `${urlBase}/rules`,
   rulesConfig : `${urlBase}/rules/config`,
-  devices: `${urlBase}/devices`
+  devices: `${urlBase}/devices`,
+  notificationEvents: `${urlBase}/notification-events`,
+  notificationEventLogs: `${urlBase}/notification-event-logs`,
+  notificationEventStatuses: `${urlBase}/notification-event-statuses`,
+  notificationTemplates: `${urlBase}/notification-templates`
 }
