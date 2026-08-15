@@ -28,5 +28,20 @@ export default {
     subHeader: {
       refresh: true,
     }
+  },
+  notificationTemplates: {
+    permission: 'notification.notification-templates.manage',
+    activated: true,
+    path: '/notifications/notification-templates',
+    name: 'notification.admin.notification-templates',
+    crud: import('modules/qnotification/_crud/notificationTemplates'),
+    layout: () => import('layouts/master'),
+    page: () => import('modules/qcrud/_pages/admin/crudPage'),
+    title: 'Notification Templates',
+    icon: 'fa-light fa-list',
+    authenticated: true,
+    subHeader: {
+      refresh: true,
+    }
   }
 }
