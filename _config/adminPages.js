@@ -43,5 +43,35 @@ export default {
     subHeader: {
       refresh: true,
     }
+  },
+   notificationEvents: {
+    permission: 'notification.notification-events.manage',
+    activated: true,
+    path: '/notifications/notification-events',
+    name: 'notification.admin.notification-events',
+    crud: import('modules/qnotification/_crud/notificationEvents'),
+    layout: () => import('layouts/master'),
+    page: () => import('modules/qcrud/_pages/admin/crudPage'),
+    title: 'Notification Events',
+    icon: 'fa-light fa-list',
+    authenticated: true,
+    subHeader: {
+      refresh: true,
+    }
+  },
+  notificationEventLogs: {
+    permission: 'notification.notification-event-logs.manage',
+    activated: true,
+    path: '/notifications/notification-event-logs',
+    name: 'notification.admin.notification-event-logs',
+    crud: import('modules/qnotification/_crud/notificationEventLogs'),
+    layout: () => import('layouts/master'),
+    page: () => import('modules/qcrud/_pages/admin/crudPage'),
+    title: 'Notification Event Logs',
+    icon: 'fa-light fa-list',
+    authenticated: true,
+    subHeader: {
+      refresh: true,
+    }
   }
 }

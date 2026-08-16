@@ -26,9 +26,13 @@ export default {
               sortable: true,
               align: 'left',
             },
+              {
+              name: 'title', label: 'Title', field: 'title', 
+         
+            },
              {
               name: 'event', label: 'Event', field: 'event', 
-              format: (val, row) => row.event?.name ?? '-'
+              format: (val, row) => row.notificationEvent?.name ?? '-'
             },
             {
               name: 'provider',
@@ -44,7 +48,7 @@ export default {
               align: 'left',
               sortable: true,
             },
-               {
+            {
               name: 'contentView',
               label: 'Content View',
               field: 'contentView',
@@ -76,7 +80,9 @@ export default {
             
           ],
           filters: {},
-          requestParams: {},
+          requestParams: {
+            include: 'notificationEvent'
+          },
         },
 
         update: {
@@ -86,11 +92,21 @@ export default {
         delete: true,
         formLeft: {
           id: { value: '' },
+          title: {
+            value: null,
+            type: 'input',
+            props: {
+              label: 'Title',
+              rules: [
+                (val) => !!val || this.$tr('isite.cms.message.fieldRequired'),
+              ],
+            },
+          },
           eventId: {
             value: [],
             type: 'select',
             props: {
-              label: 'Event *,
+              label: 'Event *',
               rules: [
                 val => !!val?.length || this.$tr('isite.cms.message.fieldRequired')
               ],
@@ -123,7 +139,7 @@ export default {
         },
         formRight: {
           status: {
-            value: null,
+            value: true,
             type: 'select',
             required: true,
             props: {
@@ -162,7 +178,6 @@ export default {
           },
           content_view: {
             value: null,
-            required: true,
             type: 'input',
             props: {
               label: `Content View*`,

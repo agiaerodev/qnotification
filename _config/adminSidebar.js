@@ -7,7 +7,9 @@ export default [
     children: [
       pages.qnotification.notification,
       pages.qnotification.setting,
-      pages.qnotification.notificationTemplates
+      pages.qnotification.notificationTemplates,
+      pages.qnotification.notificationEvents,
+      pages.qnotification.notificationEventLogs
     ]
   }
 ];
