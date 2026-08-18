@@ -176,7 +176,7 @@ export default {
               ],
             },
           },
-          content_view: {
+          contentView: {
             value: null,
             type: 'input',
             props: {
