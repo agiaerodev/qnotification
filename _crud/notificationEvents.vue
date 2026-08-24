@@ -44,7 +44,7 @@ export default {
               name: 'context',
               label: 'Context',
               field: 'context',
-              format: (val) => (val ? this.$trd(val) : '-'),
+              format: (val) => (val ? val : '-'),
               align: 'left',
               sortable: true,
             },
