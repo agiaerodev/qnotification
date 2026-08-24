@@ -40,6 +40,14 @@ export default {
               align: 'left',
               sortable: true,
             },
+              {
+              name: 'context',
+              label: 'Context',
+              field: 'context',
+              format: (val) => (val ? this.$trd(val) : '-'),
+              align: 'left',
+              sortable: true,
+            },
             {
               name: 'status',
               label: this.$tr('isite.cms.form.status'),
@@ -113,7 +121,14 @@ export default {
             props: {
               label: 'Icon Class',
             },
-          },          
+          },    
+              context: {
+            value: null,
+            type: 'input',
+            props: {
+              label: 'Context',
+            },
+          },    
         },
     
       };
