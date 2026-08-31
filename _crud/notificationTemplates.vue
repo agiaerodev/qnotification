@@ -171,19 +171,15 @@ export default {
             type: 'input',
             props: {
               label: 'Layout',
-              rules: [
-                (val) => !!val || this.$tr('isite.cms.message.fieldRequired'),
-              ],
+              hint:'Important when is an email notification'
             },
           },
           contentView: {
             value: null,
             type: 'input',
             props: {
-              label: `Content View*`,
-              rules: [
-                (val) => !!val || this.$tr('isite.cms.message.fieldRequired'),
-              ],
+              label: `Content View`,
+              hint:'Important when is an email notification'
             },
           },
         },
