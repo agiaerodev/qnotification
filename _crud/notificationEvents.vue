@@ -27,12 +27,13 @@ export default {
               align: 'left',
             },
              {
-              name: 'name', 
-              label: 'Name', 
-              field: 'name', 
+              name: 'title', 
+              label: 'Title', 
+              field: 'title', 
                align: 'left',
               sortable: true,
             },
+             
             {
               name: 'description',
               label: 'Description',
@@ -83,12 +84,21 @@ export default {
         delete: true,
         formLeft: {
           id: { value: '' },
+             title: {
+            value: '',
+            type: 'input',
+            isTranslatable: false,
+            props: {
+              label: 'title*',
+            },
+          },
           name: {
             value: '',
             type: 'input',
             isTranslatable: false,
             props: {
-              label: 'Name',
+              label: 'Name*',
+              hint: 'This is the system name'
             },
           },
          description: {
@@ -97,7 +107,7 @@ export default {
             isTranslatable: false,
             props: {
               type: 'textarea',
-              label: 'Description',
+              label: 'Description*',
             },
           },
         },
@@ -115,20 +125,21 @@ export default {
               clearable: true,
             },
           },
-          iconClass: {
+            
+              context: {
+            value: null,
+            type: 'input',
+            props: {
+              label: 'Context*',
+            },
+          },    
+           iconClass: {
             value: null,
             type: 'input',
             props: {
               label: 'Icon Class',
             },
-          },    
-              context: {
-            value: null,
-            type: 'input',
-            props: {
-              label: 'Context',
-            },
-          },    
+          }, 
         },
     
       };
