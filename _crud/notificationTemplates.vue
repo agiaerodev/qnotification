@@ -182,6 +182,50 @@ export default {
               hint:'Important when is an email notification'
             },
           },
+          link: {
+            value: null,
+            type: 'input',
+            props: {
+              label: `Link`,
+              //hint:'Important when is an email notification'
+            },
+          },
+          roles: {
+            value: [],
+            type: 'crud',
+            isFakeField: true,
+            props: {
+              crudType: 'select',
+              crudData: import('modules/quser/_crud/roles'),
+              crudProps: {
+                label: 'Audience Roles',
+                multiple: true,
+                useChips: true                
+              },
+              config: {options: {label: 'name', value: 'slug'}},
+            }
+          },
+          users: {
+            value: [],
+            type: 'crud',
+            isFakeField: true,
+            props: {
+              crudType: 'select',
+              crudData: import('modules/quser/_crud/users'),
+              crudProps: {
+                label: 'Audience Users',
+                multiple: true,
+                useChips: true,                
+              },
+             // config: {options: {label: 'name', value: 'id'}},
+              config: {
+                filterByQuery: true,
+                options: {
+                  label: 'fullName', value: 'id',
+                }
+              }
+            }
+          },
         },
     
       };
